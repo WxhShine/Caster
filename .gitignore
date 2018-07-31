@@ -1,0 +1,6 @@
+UI/obj/Debug/
+BLL/obj/Debug/
+Common/obj/Debug/
+Debug/
+*.dtbcache
+/.vs/Cater/v15/Server/sqlite3
