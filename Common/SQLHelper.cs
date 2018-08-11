@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common {
+namespace CaterCommon {
     public static class SQLHelper {
         private static string ConnStr = ConfigurationManager.ConnectionStrings["Cater"].ConnectionString;//从配置文件中读取连接字符串
 
@@ -21,7 +21,7 @@ namespace Common {
             }
         }
         //获取首行首列值
-        public static object ExecuteScalr(string sql,params SqlParameter[] ps) {
+        public static object ExecuteScalar(string sql,params SqlParameter[] ps) {
             using (SqlConnection conn = new SqlConnection(ConnStr)) {
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddRange(ps);

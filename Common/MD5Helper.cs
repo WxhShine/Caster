@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Common {
+namespace CaterCommon {
     public class MD5Helper {
         public static string EncryptString(string str) {
             MD5 md5 = MD5.Create();
