@@ -1,14 +1,14 @@
-﻿using DAL;
-using Model;
+﻿using CaterDal;
+using CaterModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace BLL {
+namespace CaterBLL {
     public class MangerInfoBLL {
-        private ManagerInfoDAL DAL = new ManagerInfoDAL();
+        private ManagerInfoDal DAL = new ManagerInfoDal();
         public List<ManagerInfo> GetList() {
             return DAL.GetList();
         }
