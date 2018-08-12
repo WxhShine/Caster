@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{9690CA32-4514-4C15-8AB3-3EE8BD8BC492}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaterBll", "BLL\CaterBll.csproj", "{9690CA32-4514-4C15-8AB3-3EE8BD8BC492}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{FD765FE1-ABDF-4B72-8534-C68587146E08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaterDal", "DAL\CaterDal.csproj", "{FD765FE1-ABDF-4B72-8534-C68587146E08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{7638E60E-D7B5-4647-A4F9-2AD48910FDFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaterUI", "UI\CaterUI.csproj", "{7638E60E-D7B5-4647-A4F9-2AD48910FDFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{52E4834C-A6AA-41C9-AA41-42C89BEBF321}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaterCommon", "Common\CaterCommon.csproj", "{52E4834C-A6AA-41C9-AA41-42C89BEBF321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{7A38FB9F-CA71-48E1-BF54-3CE7937CBEC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaterModel", "Model\CaterModel.csproj", "{7A38FB9F-CA71-48E1-BF54-3CE7937CBEC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

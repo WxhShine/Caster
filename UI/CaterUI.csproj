@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7638E60E-D7B5-4647-A4F9-2AD48910FDFB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DdlModel.cs" />
+    <Compile Include="FormDishInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDishInfo.designer.cs">
+      <DependentUpon>FormDishInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDishTypeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDishTypeInfo.Designer.cs">
+      <DependentUpon>FormDishTypeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHallInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHallInfo.Designer.cs">
+      <DependentUpon>FormHallInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManagerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManagerInfo.designer.cs">
+      <DependentUpon>FormManagerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMemberInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMemberInfo.Designer.cs">
+      <DependentUpon>FormMemberInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMemberTypeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMemberTypeInfo.Designer.cs">
+      <DependentUpon>FormMemberTypeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderDish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderDish.Designer.cs">
+      <DependentUpon>FormOrderDish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrderPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrderPay.Designer.cs">
+      <DependentUpon>FormOrderPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTableInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTableInfo.Designer.cs">
+      <DependentUpon>FormTableInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormDishInfo.resx">
+      <DependentUpon>FormDishInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDishTypeInfo.resx">
+      <DependentUpon>FormDishTypeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHallInfo.resx">
+      <DependentUpon>FormHallInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormManagerInfo.resx">
+      <DependentUpon>FormManagerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMemberInfo.resx">
+      <DependentUpon>FormMemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMemberTypeInfo.resx">
+      <DependentUpon>FormMemberTypeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderDish.resx">
+      <DependentUpon>FormOrderDish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrderPay.resx">
+      <DependentUpon>FormOrderPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTableInfo.resx">
+      <DependentUpon>FormTableInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\CaterBll.csproj">
+      <Project>{9690CA32-4514-4C15-8AB3-3EE8BD8BC492}</Project>
+      <Name>CaterBll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\CaterModel.csproj">
+      <Project>{7A38FB9F-CA71-48E1-BF54-3CE7937CBEC4}</Project>
+      <Name>CaterModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\desk1.png" />
+    <Content Include="images\desk2.png" />
+    <Content Include="images\loginBg.png" />
+    <Content Include="images\logo.ico" />
+    <Content Include="images\menuBg.BMP" />
+    <Content Include="images\menuDish.png" />
+    <Content Include="images\menuManager.png" />
+    <Content Include="images\menuMember.png" />
+    <Content Include="images\menuOrder.png" />
+    <Content Include="images\menuQuit.png" />
+    <Content Include="images\menuTable.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
