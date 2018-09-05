@@ -100,14 +100,13 @@ namespace CaterDal {
         /// <param name="name"></param>
         /// <returns></returns>
         public ManagerInfo GetByName(string name) {
-            //定义一个对象
             ManagerInfo mi = null;
             //构造语句
             string sql = "select * from managerInfo where mname=@name";
             //为语句构造参数
-            SqlParameter p = new SqlParameter("@name", name);
+            var p = new SqlParameter("@name", name);
             //执行查询得到结果
-            DataTable dt = SQLHelper.GetDataTable(sql, p);
+            var dt = SQLHelper.GetDataTable(sql, p);
             //判断是否根据用户名查找到了对象
             if (dt.Rows.Count > 0) {
                 //用户名是存在的
