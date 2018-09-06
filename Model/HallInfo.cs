@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CaterModel
 {
 	/// <summary>
-	/// HallInfo:实体类(属性说明自动提取数据库字段的描述信息)
+	/// 厅包 实体
 	/// </summary>
 	[Serializable]
 	public partial class HallInfo
@@ -27,7 +27,7 @@ namespace CaterModel
 			get{return _hid;}
 		}
 		/// <summary>
-		/// 
+		/// 厅包名
 		/// </summary>
 		public string HTitle
 		{

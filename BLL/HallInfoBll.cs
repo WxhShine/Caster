@@ -6,34 +6,49 @@ using System.Threading.Tasks;
 using CaterDal;
 using CaterModel;
 
-namespace CaterBll
-{
-    public partial class HallInfoBll
-    {
+namespace CaterBll {
+    /// <summary>
+    /// 厅包业务层
+    /// </summary>
+    public partial class HallInfoBll {
         private HallInfoDal hiDal;
 
-        public HallInfoBll()
-        {
+        public HallInfoBll() {
             hiDal = new HallInfoDal();
         }
 
-        public List<HallInfo> GetList()
-        {
+        /// <summary>
+        /// 获取厅包列表
+        /// </summary>
+        /// <returns></returns>
+        public List<HallInfo> GetList() {
             return hiDal.GetList();
         }
 
-        public bool Add(HallInfo hi)
-        {
+        /// <summary>
+        /// 添加厅包
+        /// </summary>
+        /// <param name="hi">实体</param>
+        /// <returns></returns>
+        public bool Add(HallInfo hi) {
             return hiDal.Insert(hi) > 0;
         }
 
-        public bool Edit(HallInfo hi)
-        {
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        /// <param name="hi">尸体</param>
+        /// <returns></returns>
+        public bool Edit(HallInfo hi) {
             return hiDal.Update(hi) > 0;
         }
 
-        public bool Remove(int id)
-        {
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id">实体Id</param>
+        /// <returns></returns>
+        public bool Remove(int id) {
             return hiDal.Delete(id) > 0;
         }
     }

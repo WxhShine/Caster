@@ -8,53 +8,39 @@ using System.Threading.Tasks;
 using CaterCommon;
 using CaterModel;
 
-namespace CaterDal
-{
-    public class HallInfoDal
-    {
-        public List<HallInfo> GetList()
-        {
+namespace CaterDal {
+    /// <summary>
+    /// 厅包数据层
+    /// </summary>
+    public class HallInfoDal {
+        //
+        public List<HallInfo> GetList() {
             string sql = "select * from hallInfo where hIsDelete=0";
-            DataTable dt = SQLHelper.GetDataTable(sql);
-
-            List<HallInfo> list=new List<HallInfo>();
-
-            foreach (DataRow row in dt.Rows)
-            {
-                list.Add(new HallInfo()
-                {
-                    HId = Convert.ToInt32(row["hid"]),
-                    HTitle = row["htitle"].ToString()
-                });
-            }
-
+            var list = SQLHelper.ExecuteScalarList<HallInfo>(sql);
             return list;
         }
 
-        public int Insert(HallInfo hi)
-        {
+        public int Insert(HallInfo hi) {
             string sql = "insert into hallinfo(htitle,hisDelete) values(@title,0)";
-            SqlParameter p=new SqlParameter("@title",hi.HTitle);
+            SqlParameter p = new SqlParameter("@title", hi.HTitle);
 
             return SQLHelper.ExecuteNonQuery(sql, p);
         }
 
-        public int Update(HallInfo hi)
-        {
+        public int Update(HallInfo hi) {
             string sql = "update hallinfo set htitle=@title where hid=@id";
             SqlParameter[] ps =
             {
-                new SqlParameter("@title",hi.HTitle), 
+                new SqlParameter("@title",hi.HTitle),
                 new SqlParameter("@id",hi.HId)
             };
 
             return SQLHelper.ExecuteNonQuery(sql, ps);
         }
 
-        public int Delete(int id)
-        {
+        public int Delete(int id) {
             string sql = "update hallinfo set hIsDelete=1 where hid=@id";
-            SqlParameter p=new SqlParameter("@id",id);
+            SqlParameter p = new SqlParameter("@id", id);
             return SQLHelper.ExecuteNonQuery(sql, p);
         }
     }

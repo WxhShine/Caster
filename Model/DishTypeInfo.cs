@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CaterModel
 {
 	/// <summary>
-	/// DishTypeInfo:实体类(属性说明自动提取数据库字段的描述信息)
+	/// 菜品分类 实体 
 	/// </summary>
 	[Serializable]
 	public partial class DishTypeInfo
@@ -27,7 +27,7 @@ namespace CaterModel
 			get{return _did;}
 		}
 		/// <summary>
-		/// 
+		/// 类别名称
 		/// </summary>
 		public string DTitle
 		{

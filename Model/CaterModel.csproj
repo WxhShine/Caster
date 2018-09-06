@@ -38,6 +38,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="DishInfo.cs" />
     <Compile Include="DishTypeInfo.cs" />
     <Compile Include="HallInfo.cs" />

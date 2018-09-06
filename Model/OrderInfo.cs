@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CaterModel
 {
 	/// <summary>
-	/// OrderInfo:实体类(属性说明自动提取数据库字段的描述信息)
+	/// 订单 实体 
 	/// </summary>
 	[Serializable]
 	public partial class OrderInfo
@@ -30,24 +30,24 @@ namespace CaterModel
 			set{ _oid=value;}
 			get{return _oid;}
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public int? MemberId
+        /// <summary>
+        /// 会员编号
+        /// </summary>
+        public int? MemberId
 		{
 			set{ _memberid=value;}
 			get{return _memberid;}
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? ODate
+        /// <summary>
+        /// 下单时间
+        /// </summary>
+        public DateTime? ODate
 		{
 			set{ _odate=value;}
 			get{return _odate;}
 		}
 		/// <summary>
-		/// 
+		/// 消费金额
 		/// </summary>
 		public decimal? OMoney
 		{
@@ -55,7 +55,7 @@ namespace CaterModel
 			get{return _omoney;}
 		}
 		/// <summary>
-		/// 
+		/// 是否结账
 		/// </summary>
 		public bool IsPay
 		{
@@ -63,7 +63,7 @@ namespace CaterModel
 			get{return _ispay;}
 		}
 		/// <summary>
-		/// 
+		/// 桌号
 		/// </summary>
 		public int? TableId
 		{
@@ -71,7 +71,7 @@ namespace CaterModel
 			get{return _tableid;}
 		}
 		/// <summary>
-		/// 
+		/// 折扣
 		/// </summary>
 		public decimal? Discount
 		{

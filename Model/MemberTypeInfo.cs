@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CaterModel
 {
 	/// <summary>
-	/// MemberTypeInfo:实体类(属性说明自动提取数据库字段的描述信息)
+	/// 会员等级 实体
 	/// </summary>
 	[Serializable]
 	public partial class MemberTypeInfo
@@ -20,7 +20,7 @@ namespace CaterModel
 		private decimal? _mdiscount;
 		private bool _misdelete;
 		/// <summary>
-		/// 
+		/// 编号
 		/// </summary>
 		public int MId
 		{
@@ -28,7 +28,7 @@ namespace CaterModel
 			get{return _mid;}
 		}
 		/// <summary>
-		/// 
+		/// 会员类型名称
 		/// </summary>
 		public string MTitle
 		{
@@ -36,7 +36,7 @@ namespace CaterModel
 			get{return _mtitle;}
 		}
 		/// <summary>
-		/// 
+		/// 会员折扣
 		/// </summary>
 		public decimal? MDiscount
 		{
@@ -44,7 +44,7 @@ namespace CaterModel
 			get{return _mdiscount;}
 		}
 		/// <summary>
-		/// 
+		/// 是否删除
 		/// </summary>
 		public bool MIsDelete
 		{

@@ -39,5 +39,9 @@ namespace CaterCommon {
                 return dt;
             }
         }
+
+        public static List<T> ExecuteScalarList<T>(string sql,params SqlParameter[] ps) {
+            return TableToListHelper.ConvertToList<T>( GetDataTable(sql, ps));
+        }
     }
 }

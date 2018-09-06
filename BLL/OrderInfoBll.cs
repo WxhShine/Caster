@@ -8,13 +8,21 @@ using CaterModel;
 
 namespace CaterBll
 {
+    /// <summary>
+    /// 账单信息业务层
+    /// </summary>
     public partial class OrderInfoBll
     {
         private OrderInfoDal oiDal=new OrderInfoDal();
 
-        public int KaiDan(int tableId)
+        /// <summary>
+        /// 开单
+        /// </summary>
+        /// <param name="tableId">桌号</param>
+        /// <returns></returns>
+        public int AddOrder(int tableId)
         {
-            return oiDal.KaiOrder(tableId);
+            return oiDal.AddOrder(tableId);
         }
 
         public int GetOrderIdByTableId(int tableId)
@@ -24,7 +32,7 @@ namespace CaterBll
 
         public bool DianCai(int orderId, int dishId)
         {
-            return oiDal.DianCai(orderId, dishId) > 0;
+            return oiDal.OrderDishes(orderId, dishId) > 0;
         }
 
         public bool UpdateCountByOid(int oid, int count)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CaterModel
 {
 	/// <summary>
-	/// DishInfo:实体类(属性说明自动提取数据库字段的描述信息)
+	/// 菜品 实体 
 	/// </summary>
 	[Serializable]
 	public partial class DishInfo
@@ -30,7 +30,7 @@ namespace CaterModel
 			get{return _did;}
 		}
 		/// <summary>
-		/// 
+		/// 名称
 		/// </summary>
 		public string DTitle
 		{
@@ -38,7 +38,7 @@ namespace CaterModel
 			get{return _dtitle;}
 		}
 		/// <summary>
-		/// 
+		/// 菜品类型
 		/// </summary>
 		public int? DTypeId
 		{
@@ -46,7 +46,7 @@ namespace CaterModel
 			get{return _dtypeid;}
 		}
 		/// <summary>
-		/// 
+		/// 价格
 		/// </summary>
 		public decimal? DPrice
 		{
@@ -54,7 +54,7 @@ namespace CaterModel
 			get{return _dprice;}
 		}
 		/// <summary>
-		/// 
+		/// 首字母
 		/// </summary>
 		public string DChar
 		{

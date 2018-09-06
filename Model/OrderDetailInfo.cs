@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CaterModel
 {
 	/// <summary>
-	/// OrderDetailInfo:实体类(属性说明自动提取数据库字段的描述信息)
+	/// 订单详情 实体 
 	/// </summary>
 	[Serializable]
 	public partial class OrderDetailInfo
@@ -28,25 +28,25 @@ namespace CaterModel
 			get{return _oid;}
 		}
 		/// <summary>
-		/// 
+		/// 订单编号
 		/// </summary>
 		public int? OrderId
 		{
 			set{ _orderid=value;}
 			get{return _orderid;}
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public int? DishId
+        /// <summary>
+        /// 菜品编号
+        /// </summary>
+        public int? DishId
 		{
 			set{ _dishid=value;}
 			get{return _dishid;}
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public int? Count
+        /// <summary>
+        /// 份数
+        /// </summary>
+        public int? Count
 		{
 			set{ _count=value;}
 			get{return _count;}
