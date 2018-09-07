@@ -52,7 +52,7 @@ namespace CaterUI
 
             list.Insert(0,new HallInfo()
             {
-                HId = 0,
+                Id = 0,
                 HTitle = "全部"
             });
             ddlHallSearch.DataSource = list;
@@ -123,7 +123,7 @@ namespace CaterUI
             {
                 #region 修改
 
-                ti.TId = int.Parse(txtId.Text);
+                ti.Id = int.Parse(txtId.Text);
                 if (tiBll.Edit(ti))
                 {
                     LoadList();

@@ -102,7 +102,7 @@ namespace CaterDal
             {
                 list.Add(new OrderDetailInfo()
                 {
-                    OId = Convert.ToInt32(row["oid"]),
+                    Id = Convert.ToInt32(row["oid"]),
                     DTitle = row["dtitle"].ToString(),
                     DPrice = Convert.ToDecimal(row["dprice"]),
                     Count = Convert.ToInt32(row["count"])

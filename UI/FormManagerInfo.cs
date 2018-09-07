@@ -75,7 +75,7 @@ namespace CaterUI
             {
                 #region 修改
 
-                mi.MId = int.Parse(txtId.Text);
+                mi.Id = int.Parse(txtId.Text);
                 if (miBll.Edit(mi))
                 {
                     LoadList();

@@ -42,7 +42,7 @@ namespace CaterDal
             {
                 list.Add(new DishInfo()
                 {
-                    DId = Convert.ToInt32(row["did"]),
+                    Id = Convert.ToInt32(row["did"]),
                     DTitle = row["dtitle"].ToString(),
                     DTypeTitle = row["dtypeTitle"].ToString(),
                     DChar = row["dchar"].ToString(),
@@ -76,7 +76,7 @@ namespace CaterDal
                 new SqlParameter("@tid",di.DTypeId), 
                 new SqlParameter("@price",di.DPrice), 
                 new SqlParameter("@dchar",di.DChar), 
-                new SqlParameter("@id",di.DId)
+                new SqlParameter("@id",di.Id)
             };
 
             return SQLHelper.ExecuteNonQuery(sql, ps);

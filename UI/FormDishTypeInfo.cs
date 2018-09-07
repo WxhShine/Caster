@@ -63,7 +63,7 @@ namespace CaterUI
             else
             {
                 //修改
-                dti.DId = int.Parse(txtId.Text);
+                dti.Id = int.Parse(txtId.Text);
                 if (dtiBll.Edit(dti))
                 {
                     LoadList();

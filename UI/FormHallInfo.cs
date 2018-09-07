@@ -54,7 +54,7 @@ namespace CaterUI
             else
             {
                 //修改
-                hi.HId = int.Parse(txtId.Text);
+                hi.Id = int.Parse(txtId.Text);
                 if (hiBll.Edit(hi))
                 {
                     LoadList();

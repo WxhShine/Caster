@@ -54,7 +54,7 @@ namespace CaterUI
 
             list.Insert(0,new DishTypeInfo()
             {
-                DId = 0,
+                Id = 0,
                 DTitle = "全部"
             });
 

@@ -44,7 +44,7 @@ namespace CaterDal
             {
                 list.Add(new MemberInfo()
                 {
-                    MId = Convert.ToInt32(row["mid"]),
+                    Id = Convert.ToInt32(row["mid"]),
                     MName = row["mname"].ToString(),
                     MPhone = row["mphone"].ToString(),
                     MMoney = Convert.ToDecimal(row["mmoney"]),
@@ -84,7 +84,7 @@ namespace CaterDal
                 new SqlParameter("@phone",mi.MPhone), 
                 new SqlParameter("@money",mi.MMoney), 
                 new SqlParameter("@tid",mi.MTypeId), 
-                new SqlParameter("@id",mi.MId)
+                new SqlParameter("@id",mi.Id)
             };
             //执行，返回
             return SQLHelper.ExecuteNonQuery(sql, ps);

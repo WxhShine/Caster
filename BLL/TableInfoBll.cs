@@ -8,10 +8,18 @@ using CaterModel;
 
 namespace CaterBll
 {
+    /// <summary>
+    /// 餐桌业务层
+    /// </summary>
     public partial class TableInfoBll
     {
         private TableInfoDal tiDal=new TableInfoDal();
 
+        /// <summary>
+        /// 获取所有餐桌
+        /// </summary>
+        /// <param name="dic"></param>
+        /// <returns></returns>
         public List<TableInfo> GetList(Dictionary<string,string> dic)
         {
             return tiDal.GetList(dic);

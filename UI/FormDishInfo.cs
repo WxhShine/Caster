@@ -55,7 +55,7 @@ namespace CaterUI
             //向list中插入数据
             list.Insert(0, new DishTypeInfo()
             {
-                DId = 0,
+                Id = 0,
                 DTitle = "全部"
             });
 
@@ -119,7 +119,7 @@ namespace CaterUI
             {
                 #region 修改
 
-                di.DId = int.Parse(txtId.Text);
+                di.Id = int.Parse(txtId.Text);
                 if (diBll.Update(di))
                 {
                     LoadList();

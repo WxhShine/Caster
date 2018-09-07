@@ -32,7 +32,7 @@ namespace CaterDal {
             SqlParameter[] ps =
             {
                 new SqlParameter("@title",hi.HTitle),
-                new SqlParameter("@id",hi.HId)
+                new SqlParameter("@id",hi.Id)
             };
 
             return SQLHelper.ExecuteNonQuery(sql, ps);

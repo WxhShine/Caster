@@ -36,15 +36,15 @@ namespace CaterUI {
                 //店员,管理员菜单不需要显示
                 menuManagerInfo.Visible = false;
             }
-
-            //加载所有的厅包信息
             LoadHallInfo();
         }
 
+        //加载所有的厅包信息
         private void LoadHallInfo() {
             //2.1、获取所有的厅包对象
             var hallInfoBll = new HallInfoBll();
             var list = hallInfoBll.GetList();
+
             //2.2、遍历集合，向标签页中添加信息
             tcHallInfo.TabPages.Clear();
             var tiBll = new TableInfoBll();
@@ -55,19 +55,21 @@ namespace CaterUI {
                 var lvTableInfo = new ListView();
                 //添加双击事件，完成开单功能
                 lvTableInfo.DoubleClick += lvTableInfo_DoubleClick;
+
                 //3.2、让列表使用图片
                 lvTableInfo.LargeImageList = imageList1;
                 lvTableInfo.Dock = DockStyle.Fill;
                 tp.Controls.Add(lvTableInfo);
                 //4.1、获取当前厅包对象的所有餐桌
-                var dic = new Dictionary<string, string>();
-                dic.Add("thallid", hallInfo.HId.ToString());
+                var dic = new Dictionary<string, string> {
+                    { "thallid", hallInfo.Id.ToString() }
+                };
                 var listTableInfo = tiBll.GetList(dic);
                 //4.2、向列表中添加餐桌信息
                 foreach (var ti in listTableInfo) {
                     var lvi = new ListViewItem(ti.TTitle, ti.TIsFree ? 0 : 1);
                     //后续操作需要用到餐桌编号，所以在这里存一下
-                    lvi.Tag = ti.TId;
+                    lvi.Tag = ti.Id;
 
                     lvTableInfo.Items.Add(lvi);
                 }

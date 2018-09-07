@@ -62,7 +62,7 @@ namespace CaterUI
             else
             {
                 //修改
-                mti.MId = int.Parse(txtId.Text);
+                mti.Id = int.Parse(txtId.Text);
                 //调用修改的方法
                 if (mtiBll.Edit(mti))
                 {

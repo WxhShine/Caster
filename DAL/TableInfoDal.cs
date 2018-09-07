@@ -40,7 +40,7 @@ namespace CaterDal
             {
                 list.Add(new TableInfo()
                 {
-                    TId = Convert.ToInt32(row["tid"]),
+                    Id = Convert.ToInt32(row["tid"]),
                     TTitle = row["ttitle"].ToString(),
                     HallTitle = row["htitle"].ToString(),
                     THallId = Convert.ToInt32(row["thallId"]),
@@ -72,7 +72,7 @@ namespace CaterDal
                 new SqlParameter("@title", ti.TTitle),
                 new SqlParameter("@hid", ti.THallId),
                 new SqlParameter("@isfree", ti.TIsFree),
-                new SqlParameter("@id", ti.TId)
+                new SqlParameter("@id", ti.Id)
             };
             return SQLHelper.ExecuteNonQuery(sql, ps);
         }

@@ -27,7 +27,7 @@ namespace CaterDal
             {
                 list.Add(new MemberTypeInfo()
                 {
-                    MId = Convert.ToInt32(row["mid"]),
+                    Id = Convert.ToInt32(row["mid"]),
                     MTitle = row["mtitle"].ToString(),
                     MDiscount = Convert.ToDecimal(row["mdiscount"])
                 });
@@ -62,7 +62,7 @@ namespace CaterDal
             {
                 new SqlParameter("@title",mti.MTitle), 
                 new SqlParameter("@discount",mti.MDiscount), 
-                new SqlParameter("@id",mti.MId)
+                new SqlParameter("@id",mti.Id)
             };
             //执行
             return SQLHelper.ExecuteNonQuery(sql, ps);

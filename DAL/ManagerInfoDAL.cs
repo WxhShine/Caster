@@ -56,7 +56,7 @@ namespace CaterDal {
             }
             sql += ",mtype=@type where mid=@id";
             listPs.Add(new SqlParameter("@type", mi.MType));
-            listPs.Add(new SqlParameter("@id", mi.MId));
+            listPs.Add(new SqlParameter("@id", mi.Id));
 
             //执行语句并返回结果
             return SQLHelper.ExecuteNonQuery(sql, listPs.ToArray());

@@ -37,7 +37,7 @@ namespace CaterBll {
         /// <summary>
         /// 编辑
         /// </summary>
-        /// <param name="hi">尸体</param>
+        /// <param name="hi">实体</param>
         /// <returns></returns>
         public bool Edit(HallInfo hi) {
             return hiDal.Update(hi) > 0;
