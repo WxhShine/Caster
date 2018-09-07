@@ -9,6 +9,9 @@ using CaterCommon;
 using CaterModel;
 
 namespace CaterDal {
+    /// <summary>
+    /// 管理员表数据层
+    /// </summary>
     public partial class ManagerInfoDal {
         /// <summary>
         /// 查询获取结果集
@@ -54,7 +57,7 @@ namespace CaterDal {
                 sql += ",mpwd=@pwd";
                 listPs.Add(new SqlParameter("@pwd", MD5Helper.EncryptString(mi.MPwd)));
             }
-            sql += ",mtype=@type where mid=@id";
+            sql += ",mtype=@type where Id=@id";
             listPs.Add(new SqlParameter("@type", mi.MType));
             listPs.Add(new SqlParameter("@id", mi.Id));
 
@@ -68,7 +71,7 @@ namespace CaterDal {
         /// <param name="id"></param>
         /// <returns></returns>
         public int Delete(int id) {
-            string sql = "delete from ManagerInfo where mid=@id";
+            string sql = "delete from ManagerInfo where Id=@id";
             SqlParameter p = new SqlParameter("@id", id);
             return SQLHelper.ExecuteNonQuery(sql, p);
         }

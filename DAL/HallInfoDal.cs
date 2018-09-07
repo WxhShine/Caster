@@ -28,7 +28,7 @@ namespace CaterDal {
         }
 
         public int Update(HallInfo hi) {
-            string sql = "update hallinfo set htitle=@title where hid=@id";
+            string sql = "update hallinfo set htitle=@title where Id=@id";
             SqlParameter[] ps =
             {
                 new SqlParameter("@title",hi.HTitle),
@@ -39,7 +39,7 @@ namespace CaterDal {
         }
 
         public int Delete(int id) {
-            string sql = "update hallinfo set hIsDelete=1 where hid=@id";
+            string sql = "update hallinfo set hIsDelete=1 where Id=@id";
             SqlParameter p = new SqlParameter("@id", id);
             return SQLHelper.ExecuteNonQuery(sql, p);
         }

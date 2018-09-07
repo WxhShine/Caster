@@ -18,7 +18,7 @@ namespace CaterDal
         {
             string sql = "select ti.*,hi.hTitle from tableinfo as ti " +
                          "inner join hallinfo as hi " +
-                         "on ti.tHallId=hi.hid " +
+                         "on ti.tHallId=hi.id " +
                          "where ti.tisDelete=0 and hi.hIsDelete=0";
             
 
@@ -40,7 +40,7 @@ namespace CaterDal
             {
                 list.Add(new TableInfo()
                 {
-                    Id = Convert.ToInt32(row["tid"]),
+                    Id = Convert.ToInt32(row["id"]),
                     TTitle = row["ttitle"].ToString(),
                     HallTitle = row["htitle"].ToString(),
                     THallId = Convert.ToInt32(row["thallId"]),
@@ -66,7 +66,7 @@ namespace CaterDal
 
         public int Update(TableInfo ti)
         {
-            string sql = "update tableinfo set ttitle=@title,thallid=@hid,tisfree=@isfree where tid=@id";
+            string sql = "update tableinfo set ttitle=@title,thallid=@hid,tisfree=@isfree where id=@id";
             SqlParameter[] ps =
             {
                 new SqlParameter("@title", ti.TTitle),
@@ -79,7 +79,7 @@ namespace CaterDal
 
         public int Delete(int id)
         {
-            string sql = "update tableinfo set tisDelete=1 where tid=@id";
+            string sql = "update tableinfo set tisDelete=1 where id=@id";
             SqlParameter p=new SqlParameter("@id",id);
 
             return SQLHelper.ExecuteNonQuery(sql, p);

@@ -23,7 +23,7 @@ namespace CaterDal
             {
                 list.Add(new DishTypeInfo()
                 {
-                    Id = Convert.ToInt32(row["did"]),
+                    Id = Convert.ToInt32(row["Id"]),
                     DTitle = row["dtitle"].ToString()
                 });
             }
@@ -40,7 +40,7 @@ namespace CaterDal
 
         public int Update(DishTypeInfo dti)
         {
-            string sql = "update dishtypeinfo set dtitle=@title where did=@id";
+            string sql = "update dishtypeinfo set dtitle=@title where Id=@id";
             SqlParameter[] p=
             {
                 new SqlParameter("@title",dti.DTitle), 
@@ -52,7 +52,7 @@ namespace CaterDal
 
         public int Delete(int id)
         {
-            string sql = "update dishtypeinfo set dIsDelete=1 where did=@id";
+            string sql = "update dishtypeinfo set dIsDelete=1 where Id=@id";
             SqlParameter p=new SqlParameter("@id",id);
 
             return SQLHelper.ExecuteNonQuery(sql, p);

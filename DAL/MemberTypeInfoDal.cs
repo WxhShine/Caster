@@ -27,7 +27,7 @@ namespace CaterDal
             {
                 list.Add(new MemberTypeInfo()
                 {
-                    Id = Convert.ToInt32(row["mid"]),
+                    Id = Convert.ToInt32(row["Id"]),
                     MTitle = row["mtitle"].ToString(),
                     MDiscount = Convert.ToDecimal(row["mdiscount"])
                 });
@@ -56,7 +56,7 @@ namespace CaterDal
         public int Update(MemberTypeInfo mti)
         {
             //构造update语句
-            string sql = "update memberTypeInfo set mtitle=@title,mdiscount=@discount where mid=@id";
+            string sql = "update memberTypeInfo set mtitle=@title,mdiscount=@discount where Id=@id";
             //为语句构造参数
             SqlParameter[] ps =
             {
@@ -72,7 +72,7 @@ namespace CaterDal
         public int Delete(int id)
         {
             //进行逻辑删除的sql语句
-            string sql = "update memberTypeInfo set mIsDelete=1 where mid=@id";
+            string sql = "update memberTypeInfo set mIsDelete=1 where Id=@id";
             //参数
             SqlParameter p=new SqlParameter("@id",id);
             //执行并返回受影响行数

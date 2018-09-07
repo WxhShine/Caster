@@ -26,12 +26,12 @@ namespace CaterDal
             //更新餐桌状态
             //写在一起执行，只需要和数据库交互一次
             //下订单
-            string sql = "INSERT INTO OrderInfo(odate,ispay,tableId) VALUES(DATETIME('now', 'localtime'),0,@tid);" +
+            string sql = "INSERT INTO OrderInfo(odate,ispay,tableId) VALUES(DATETIME('now', 'localtime'),0,@Id);" +
                 //更新餐桌状态
-                "UPDATE TableInfo SET tIsFree=0 WHERE tid=@tid;" +
+                "UPDATE TableInfo SET tIsFree=0 WHERE Id=@Id;" +
                 //获取最新的订单编号
-                "SELECT oid FROM orderinfo ORDER BY oid DESC LIMIT 0,1";
-            SqlParameter p=new SqlParameter("@tid",tableId);
+                "SELECT Id FROM orderinfo ORDER BY Id DESC LIMIT 0,1";
+            SqlParameter p=new SqlParameter("@Id",tableId);
             return Convert.ToInt32(SQLHelper.ExecuteScalar(sql, p));
         }
 
@@ -42,7 +42,7 @@ namespace CaterDal
         /// <returns></returns>
         public int GetOrderIdByTableId(int tableId)
         {
-            string sql = "SELECT oid FROM orderinfo where tableId=@tableid and ispay=0";
+            string sql = "SELECT Id FROM orderinfo where tableId=@tableid and ispay=0";
             SqlParameter p=new SqlParameter("@tableId",tableId);
             return Convert.ToInt32(SQLHelper.ExecuteScalar(sql, p));
         }
@@ -56,42 +56,42 @@ namespace CaterDal
         public int OrderDishes(int orderid, int dishId)
         {
             //查询当前订单是否已经点了这道菜
-            string sql = "SELECT COUNT(*) FROM orderDetailInfo WHERE orderId=@oid AND dishId=@did";
+            string sql = "SELECT COUNT(*) FROM orderDetailInfo WHERE orderId=@Id AND dishId=@did";
             SqlParameter[] ps =
             {
-                new SqlParameter("@oid", orderid),
+                new SqlParameter("@Id", orderid),
                 new SqlParameter("@did", dishId)
             };
             int count = Convert.ToInt32(SQLHelper.ExecuteScalar(sql, ps));
             if (count > 0)
             {
                 //这个订单已经点过这个菜，让数量加1
-                sql = "UPDATE orderDetailInfo SET count=count+1 WHERE orderId=@oid AND dishId=@did";
+                sql = "UPDATE orderDetailInfo SET count=count+1 WHERE orderId=@Id AND dishId=@did";
             }
             else
             {
                 //当前订单还没有点这个菜，加入这个菜
-                sql = "INSERT INTO orderDetailInfo(orderid,dishId,count) VALUES(@oid,@did,1)";
+                sql = "INSERT INTO orderDetailInfo(orderid,dishId,count) VALUES(@Id,@did,1)";
             }
             return SQLHelper.ExecuteNonQuery(sql, ps);
         }
 
-        public int UpdateCountByOId(int oid,int count)
+        public int UpdateCountById(int Id,int count)
         {
-            string sql = "UPDATE orderDetailInfo SET count=@count where oid=@oid";
+            string sql = "UPDATE orderDetailInfo SET count=@count where Id=@Id";
             SqlParameter[] ps =
             {
                 new SqlParameter("@count", count),
-                new SqlParameter("@oid", oid)
+                new SqlParameter("@Id", Id)
             };
             return SQLHelper.ExecuteNonQuery(sql, ps);
         }
 
         public List<OrderDetailInfo> GetDetailList(int orderId)
         {
-            string sql=@"SELECT odi.oid,di.dTitle,di.dPrice,odi.count FROM dishinfo AS di
+            string sql=@"SELECT odi.Id,di.dTitle,di.dPrice,odi.count FROM dishinfo AS di
             INNER JOIN OrderDetailInfo AS odi
-            ON di.did=odi.dishid
+            ON di.id=odi.dishid
             WHERE odi.orderId=@orderid";
             SqlParameter p=new SqlParameter("@orderid",orderId);
 
@@ -102,7 +102,7 @@ namespace CaterDal
             {
                 list.Add(new OrderDetailInfo()
                 {
-                    Id = Convert.ToInt32(row["oid"]),
+                    Id = Convert.ToInt32(row["Id"]),
                     DTitle = row["dtitle"].ToString(),
                     DPrice = Convert.ToDecimal(row["dprice"]),
                     Count = Convert.ToInt32(row["count"])
@@ -117,7 +117,7 @@ namespace CaterDal
             string sql = @"	SELECT SUM(oti.count*di.dprice) 
 	            FROM orderdetailinfo AS oti
 	            INNER JOIN dishinfo AS di
-	            ON oti.dishid=di.did
+	            ON oti.dishid=di.id
 	            WHERE oti.orderid=@orderid";
            SqlParameter p=new SqlParameter("@orderid",orderid);
 
@@ -131,19 +131,19 @@ namespace CaterDal
 
         public int SetOrderMomey(int orderid,decimal money)
         {
-            string sql = "UPDATE orderinfo set omoney=@money WHERE oid=@oid";
+            string sql = "UPDATE orderinfo set omoney=@money WHERE Id=@Id";
             SqlParameter[] ps =
             {
                 new SqlParameter("@money", money),
-                new SqlParameter("@oid", orderid)
+                new SqlParameter("@Id", orderid)
             };
             return SQLHelper.ExecuteNonQuery(sql, ps);
         }
 
-        public int DeleteDetailById(int oid)
+        public int DeleteDetailById(int Id)
         {
-            string sql = "DELETE FROM orderDetailInfo WHERE oid=@oid";
-            SqlParameter p=new SqlParameter("@oid",oid);
+            string sql = "DELETE FROM orderDetailInfo WHERE Id=@Id";
+            SqlParameter p=new SqlParameter("@Id",Id);
             return SQLHelper.ExecuteNonQuery(sql, p);
         }
 
@@ -170,7 +170,7 @@ namespace CaterDal
                     if (isUseMoney)
                     {
                         //使用余额
-                        sql = "UPDATE MemberInfo SET mMoney=mMoney-@payMoney WHERE mid=@mid";
+                        sql = "UPDATE MemberInfo SET mMoney=mMoney-@payMoney WHERE id=@mid";
                         ps = new SqlParameter[]
                         {
                             new SqlParameter("@payMoney", payMoney),
@@ -182,12 +182,12 @@ namespace CaterDal
                     }
 
                     //2、将订单状态为IsPage=1
-                    sql = "UPDATE orderInfo SET isPay=1,memberId=@mid,discount=@discount WHERE oid=@oid";
+                    sql = "UPDATE orderInfo SET isPay=1,memberId=@mid,discount=@discount WHERE Id=@Id";
                     ps = new SqlParameter[]
                     {
                         new SqlParameter("@mid", memberId),
                         new SqlParameter("@discount", discount),
-                        new SqlParameter("@oid", orderid)
+                        new SqlParameter("@Id", orderid)
                     };
                     cmd.CommandText = sql;
                     cmd.Parameters.Clear();
@@ -195,8 +195,8 @@ namespace CaterDal
                     result += cmd.ExecuteNonQuery();
 
                     //3、将餐桌状态IsFree=1
-                    sql = "UPDATE tableInfo SET tIsFree=1 WHERE tid=(SELECT tableId FROM orderinfo WHERE oid=@oid)";
-                    SqlParameter p = new SqlParameter("@oid", orderid);
+                    sql = "UPDATE tableInfo SET tIsFree=1 WHERE Id=(SELECT tableId FROM orderinfo WHERE Id=@Id)";
+                    SqlParameter p = new SqlParameter("@Id", orderid);
                     cmd.CommandText = sql;
                     cmd.Parameters.Clear();
                     cmd.Parameters.Add(p);

@@ -18,7 +18,7 @@ namespace CaterDal
             string sql = "select mi.*,mti.mTitle as MTypeTitle,mti.mDiscount " +
                          "from MemberInfo as mi " +
                          "inner join MemberTypeInfo as mti " +
-                         "on mi.mTypeId=mti.mid " +
+                         "on mi.mTypeId=mti.Id " +
                          "where mi.mIsDelete=0 and mti.mIsDelete=0";
                          // +"and mname like '%sadf%'";
             
@@ -44,7 +44,7 @@ namespace CaterDal
             {
                 list.Add(new MemberInfo()
                 {
-                    Id = Convert.ToInt32(row["mid"]),
+                    Id = Convert.ToInt32(row["Id"]),
                     MName = row["mname"].ToString(),
                     MPhone = row["mphone"].ToString(),
                     MMoney = Convert.ToDecimal(row["mmoney"]),
@@ -76,7 +76,7 @@ namespace CaterDal
         public int Update(MemberInfo mi)
         {
             //构造update语句
-            string sql = "update memberinfo set mname=@name,mphone=@phone,mmoney=@money,mtypeid=@tid where mid=@id";
+            string sql = "update memberinfo set mname=@name,mphone=@phone,mmoney=@money,mtypeid=@tid where Id=@id";
             //为语句提供参数
             SqlParameter[] ps =
             {
@@ -92,7 +92,7 @@ namespace CaterDal
 
         public int Delete(int id)
         {
-            string sql = "update memberinfo set mIsDelete=1 where mid=@id";
+            string sql = "update memberinfo set mIsDelete=1 where Id=@id";
             SqlParameter p=new SqlParameter("@id",id);
             return SQLHelper.ExecuteNonQuery(sql, p);
         }
