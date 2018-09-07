@@ -61,7 +61,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(166, 30);
             this.txtName.TabIndex = 2;
-            this.txtName.Text = "输入用户名";
+            this.txtName.Text = "伍小辉";
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtPwd
@@ -72,7 +72,7 @@
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(166, 30);
             this.txtPwd.TabIndex = 3;
-            this.txtPwd.Text = "*******";
+            this.txtPwd.Text = "123";
             this.txtPwd.TextChanged += new System.EventHandler(this.txtPwd_TextChanged);
             // 
             // FormLogin
