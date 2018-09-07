@@ -37,7 +37,7 @@ namespace CaterBll
 
         public bool UpdateCountByOid(int oid, int count)
         {
-            return oiDal.UpdateCountByOId(oid, count) > 0;
+            return oiDal.UpdateCountById(oid, count) > 0;
         }
 
         public List<OrderDetailInfo> GetDetailList(int orderId)
