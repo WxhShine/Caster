@@ -44,7 +44,6 @@
     <Compile Include="HallInfo.cs" />
     <Compile Include="LoginState.cs" />
     <Compile Include="ManagerInfo.cs" />
-    <Compile Include="MangerInfo.cs" />
     <Compile Include="MemberInfo.cs" />
     <Compile Include="MemberTypeInfo.cs" />
     <Compile Include="OrderDetailInfo.cs" />
