@@ -18,7 +18,7 @@ namespace CaterDal
                 from dishinfo as di
                 inner join dishtypeinfo as dti
                 on di.dtypeid=dti.Id
-                where di.dIsDelete=0 and dti.dIsDelete=0";
+                where di.IsDelete=0 and dti.IsDelete=0";
 
             List<SqlParameter> listP=new List<SqlParameter>();
             //接收筛选条件
@@ -55,7 +55,7 @@ namespace CaterDal
 
         public int Insert(DishInfo di)
         {
-            string sql = "insert into dishinfo(dtitle,dtypeid,dprice,dchar,dIsDelete) values(@title,@tid,@price,@dchar,0)";
+            string sql = "insert into dishinfo(dtitle,dtypeid,dprice,dchar,IsDelete) values(@title,@tid,@price,@dchar,0)";
             SqlParameter[] p =
             {
                 new SqlParameter("@title",di.DTitle), 
@@ -84,7 +84,7 @@ namespace CaterDal
 
         public int Delete(int id)
         {
-            string sql = "update dishinfo set dIsDelete=1 where Id=@id";
+            string sql = "update dishinfo set IsDelete=1 where Id=@id";
             SqlParameter p = new SqlParameter("@id", id);
 
             return SQLHelper.ExecuteNonQuery(sql, p);

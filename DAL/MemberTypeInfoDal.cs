@@ -16,7 +16,7 @@ namespace CaterDal
         public List<MemberTypeInfo> GetList()
         {
             //查询未删除的数据
-            string sql = "select * from memberTypeInfo where mIsDelete=0";
+            string sql = "select * from memberTypeInfo where IsDelete=0";
             //执行查询返回表格
             DataTable dt = SQLHelper.GetDataTable(sql);
             //定义集合对象
@@ -41,7 +41,7 @@ namespace CaterDal
         public int Insert(MemberTypeInfo mti)
         {
             //构造insert语句
-            string sql = "insert into MemberTypeInfo(mtitle,mdiscount,misDelete) values(@title,@discount,0)";
+            string sql = "insert into MemberTypeInfo(mtitle,mdiscount,isDelete) values(@title,@discount,0)";
             //为sql语句构造参数
             SqlParameter[] ps =
             {
@@ -72,7 +72,7 @@ namespace CaterDal
         public int Delete(int id)
         {
             //进行逻辑删除的sql语句
-            string sql = "update memberTypeInfo set mIsDelete=1 where Id=@id";
+            string sql = "update memberTypeInfo set IsDelete=1 where Id=@id";
             //参数
             SqlParameter p=new SqlParameter("@id",id);
             //执行并返回受影响行数

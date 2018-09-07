@@ -15,13 +15,13 @@ namespace CaterDal {
     public class HallInfoDal {
         //
         public List<HallInfo> GetList() {
-            string sql = "select * from hallInfo where hIsDelete=0";
+            string sql = "select * from hallInfo where IsDelete=0";
             var list = SQLHelper.ExecuteScalarList<HallInfo>(sql);
             return list;
         }
 
         public int Insert(HallInfo hi) {
-            string sql = "insert into hallinfo(htitle,hisDelete) values(@title,0)";
+            string sql = "insert into hallinfo(htitle,isDelete) values(@title,0)";
             SqlParameter p = new SqlParameter("@title", hi.HTitle);
 
             return SQLHelper.ExecuteNonQuery(sql, p);
@@ -39,7 +39,7 @@ namespace CaterDal {
         }
 
         public int Delete(int id) {
-            string sql = "update hallinfo set hIsDelete=1 where Id=@id";
+            string sql = "update hallinfo set IsDelete=1 where Id=@id";
             SqlParameter p = new SqlParameter("@id", id);
             return SQLHelper.ExecuteNonQuery(sql, p);
         }

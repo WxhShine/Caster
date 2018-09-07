@@ -19,7 +19,7 @@ namespace CaterDal
             string sql = "select ti.*,hi.hTitle from tableinfo as ti " +
                          "inner join hallinfo as hi " +
                          "on ti.tHallId=hi.id " +
-                         "where ti.tisDelete=0 and hi.hIsDelete=0";
+                         "where ti.isDelete=0 and hi.IsDelete=0";
             
 
             List<SqlParameter> listP=new List<SqlParameter>();
@@ -53,7 +53,7 @@ namespace CaterDal
 
         public int Insert(TableInfo ti)
         {
-            string sql = "insert into tableinfo(ttitle,thallid,tisFree,tisDelete) values(@title,@hid,@isfree,0)";
+            string sql = "insert into tableinfo(ttitle,thallid,tisFree,isDelete) values(@title,@hid,@isfree,0)";
             SqlParameter[] ps =
             {
                 new SqlParameter("@title", ti.TTitle),
@@ -79,7 +79,7 @@ namespace CaterDal
 
         public int Delete(int id)
         {
-            string sql = "update tableinfo set tisDelete=1 where id=@id";
+            string sql = "update tableinfo set isDelete=1 where id=@id";
             SqlParameter p=new SqlParameter("@id",id);
 
             return SQLHelper.ExecuteNonQuery(sql, p);

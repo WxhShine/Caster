@@ -14,7 +14,7 @@ namespace CaterDal
     {
         public List<DishTypeInfo> GetList()
         {
-            string sql = "select * from DishTypeInfo where dIsDelete=0";
+            string sql = "select * from DishTypeInfo where IsDelete=0";
             DataTable dt = SQLHelper.GetDataTable(sql);
             //转存集合
             List<DishTypeInfo> list=new List<DishTypeInfo>();
@@ -33,7 +33,7 @@ namespace CaterDal
 
         public int Insert(DishTypeInfo dti)
         {
-            string sql = "insert into dishtypeinfo(dtitle,dIsDelete) values(@title,0)";
+            string sql = "insert into dishtypeinfo(dtitle,IsDelete) values(@title,0)";
             SqlParameter p=new SqlParameter("@title",dti.DTitle);
             return SQLHelper.ExecuteNonQuery(sql, p);
         }
@@ -52,7 +52,7 @@ namespace CaterDal
 
         public int Delete(int id)
         {
-            string sql = "update dishtypeinfo set dIsDelete=1 where Id=@id";
+            string sql = "update dishtypeinfo set IsDelete=1 where Id=@id";
             SqlParameter p=new SqlParameter("@id",id);
 
             return SQLHelper.ExecuteNonQuery(sql, p);
