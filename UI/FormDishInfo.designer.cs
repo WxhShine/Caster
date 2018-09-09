@@ -51,12 +51,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvList = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
@@ -304,9 +304,19 @@
             this.dgvList.TabIndex = 0;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvList);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(554, 448);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "列表";
+            // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Did";
+            this.Column1.DataPropertyName = "id";
             this.Column1.HeaderText = "编号";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -338,16 +348,6 @@
             this.Column5.HeaderText = "拼音";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dgvList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(554, 448);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "列表";
             // 
             // FormDishInfo
             // 

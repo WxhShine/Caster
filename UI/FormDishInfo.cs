@@ -60,7 +60,7 @@ namespace CaterUI
             });
 
             ddlTypeSearch.DataSource = list;
-            ddlTypeSearch.ValueMember = "did";//对应于SelectedValue属性
+            ddlTypeSearch.ValueMember = "id";//对应于SelectedValue属性
             ddlTypeSearch.DisplayMember = "dtitle";//用于显示的值 
             #endregion
 
@@ -68,7 +68,7 @@ namespace CaterUI
 
             ddlTypeAdd.DataSource = dtiBll.GetList();
             ddlTypeAdd.DisplayMember = "dtitle";
-            ddlTypeAdd.ValueMember = "did";
+            ddlTypeAdd.ValueMember = "id";
 
             #endregion
         }

@@ -28,53 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblMoney = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnOrder = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.dgvOrderDetail = new System.Windows.Forms.DataGridView();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvAllDish = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ddlType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllDish)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "DPrice";
-            this.Column9.HeaderText = "价格";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "DTitle";
-            this.Column6.HeaderText = "名称";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "OId";
-            this.Column5.HeaderText = "编号";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // lblMoney
             // 
@@ -132,12 +111,6 @@
             this.dgvOrderDetail.TabIndex = 0;
             this.dgvOrderDetail.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetail_CellEndEdit);
             // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "Count";
-            this.Column7.HeaderText = "数量";
-            this.Column7.Name = "Column7";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblMoney);
@@ -172,41 +145,6 @@
             this.dgvAllDish.Size = new System.Drawing.Size(548, 435);
             this.dgvAllDish.TabIndex = 4;
             this.dgvAllDish.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAllDish_CellDoubleClick);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "DId";
-            this.Column1.HeaderText = "编号";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "DTitle";
-            this.Column2.HeaderText = "名称";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "DPrice";
-            this.Column8.HeaderText = "价格";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "DTypeTitle";
-            this.Column3.HeaderText = "分类";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "DChar";
-            this.Column4.HeaderText = "首字母";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // ddlType
             // 
@@ -258,6 +196,68 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "菜名首字母：";
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "编号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "DTitle";
+            this.Column2.HeaderText = "名称";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "DPrice";
+            this.Column8.HeaderText = "价格";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "DTypeTitle";
+            this.Column3.HeaderText = "分类";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "DChar";
+            this.Column4.HeaderText = "首字母";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Id";
+            this.Column5.HeaderText = "编号";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "DTitle";
+            this.Column6.HeaderText = "名称";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "Count";
+            this.Column7.HeaderText = "数量";
+            this.Column7.Name = "Column7";
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "DPrice";
+            this.Column9.HeaderText = "价格";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
             // FormOrderDish
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -279,16 +279,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.DataGridView dgvOrderDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvAllDish;
         private System.Windows.Forms.ComboBox ddlType;
@@ -296,6 +291,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;

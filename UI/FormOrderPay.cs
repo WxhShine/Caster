@@ -91,10 +91,15 @@ namespace CaterUI
             //2、将订单状态为IsPage=1
             //3、将餐桌状态IsFree=1
 
-            if (oiBll.Pay(cbkMoney.Checked, int.Parse(txtId.Text), Convert.ToDecimal(lblPayMoneyDiscount.Text), orderId,
+            if (cbkMember.Checked && oiBll.Pay(cbkMoney.Checked, int.Parse(txtId.Text), Convert.ToDecimal(lblPayMoneyDiscount.Text), orderId,
                 Convert.ToDecimal(lblDiscount.Text)))
             {
-                //MessageBox.Show("结账成功");
+                MessageBox.Show("结账成功");
+                Refresh();
+                this.Close();
+            }
+            else if (!cbkMember.Checked) {
+                MessageBox.Show("结账成功");
                 Refresh();
                 this.Close();
             }

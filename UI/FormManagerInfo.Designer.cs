@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -37,9 +36,7 @@
             this.rb2 = new System.Windows.Forms.RadioButton();
             this.rb1 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvList = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -48,17 +45,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "MType";
-            this.Column3.HeaderText = "类型";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // label6
             // 
@@ -139,13 +132,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "类型：";
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MId";
-            this.Column1.HeaderText = "编号";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // dgvList
             // 
             this.dgvList.AllowUserToAddRows = false;
@@ -166,13 +152,6 @@
             this.dgvList.TabIndex = 0;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             this.dgvList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvList_CellFormatting);
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MName";
-            this.Column2.HeaderText = "用户名";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -260,6 +239,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "添加\\修改";
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "编号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MName";
+            this.Column2.HeaderText = "用户名";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "MType";
+            this.Column3.HeaderText = "类型";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
             // FormManagerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -280,8 +280,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnRemove;
@@ -290,9 +288,7 @@
         private System.Windows.Forms.RadioButton rb2;
         private System.Windows.Forms.RadioButton rb1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridView dgvList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
@@ -301,5 +297,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

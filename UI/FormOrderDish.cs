@@ -58,7 +58,7 @@ namespace CaterUI
                 DTitle = "全部"
             });
 
-            ddlType.ValueMember = "did";
+            ddlType.ValueMember = "id";
             ddlType.DisplayMember = "dtitle";
             ddlType.DataSource = list;
         }
@@ -98,7 +98,7 @@ namespace CaterUI
             int dishId = Convert.ToInt32(dgvAllDish.Rows[e.RowIndex].Cells[0].Value);
 
             //执行点菜操作
-            if (oiBll.DianCai(orderId, dishId))
+            if (oiBll.OrderDishes(orderId, dishId))
             {
                 //点菜成功
                 LoadDetailList();

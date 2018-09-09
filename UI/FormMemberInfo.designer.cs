@@ -51,12 +51,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvList = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
@@ -287,9 +287,33 @@
             this.dgvList.TabIndex = 0;
             this.dgvList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellDoubleClick);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnRemove);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.btnAddType);
+            this.groupBox3.Controls.Add(this.btnCancel);
+            this.groupBox3.Controls.Add(this.btnSave);
+            this.groupBox3.Controls.Add(this.ddlType);
+            this.groupBox3.Controls.Add(this.txtMoney);
+            this.groupBox3.Controls.Add(this.txtPhoneAdd);
+            this.groupBox3.Controls.Add(this.txtNameAdd);
+            this.groupBox3.Controls.Add(this.txtId);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(572, 128);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(176, 332);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "添加\\修改";
+            // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "MId";
+            this.Column1.DataPropertyName = "Id";
             this.Column1.HeaderText = "编号";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -321,30 +345,6 @@
             this.Column5.HeaderText = "账户余额";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnRemove);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.btnAddType);
-            this.groupBox3.Controls.Add(this.btnCancel);
-            this.groupBox3.Controls.Add(this.btnSave);
-            this.groupBox3.Controls.Add(this.ddlType);
-            this.groupBox3.Controls.Add(this.txtMoney);
-            this.groupBox3.Controls.Add(this.txtPhoneAdd);
-            this.groupBox3.Controls.Add(this.txtNameAdd);
-            this.groupBox3.Controls.Add(this.txtId);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(572, 128);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(176, 332);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "添加\\修改";
             // 
             // FormMemberInfo
             // 

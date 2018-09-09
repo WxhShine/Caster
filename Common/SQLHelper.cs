@@ -26,7 +26,9 @@ namespace CaterCommon {
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddRange(ps);
                 conn.Open();
-                return cmd.ExecuteScalar();
+                var executeRow = cmd.ExecuteScalar();
+                cmd.Parameters.Clear();
+                return executeRow;
             }
         }
         //获取datatable

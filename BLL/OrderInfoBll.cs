@@ -25,16 +25,33 @@ namespace CaterBll
             return oiDal.AddOrder(tableId);
         }
 
+        /// <summary>
+        /// 查看此桌号的当前账单
+        /// </summary>
+        /// <param name="tableId"></param>
+        /// <returns></returns>
         public int GetOrderIdByTableId(int tableId)
         {
             return oiDal.GetOrderIdByTableId(tableId);
         }
 
-        public bool DianCai(int orderId, int dishId)
+        /// <summary>
+        /// 点餐
+        /// </summary>
+        /// <param name="orderId">订单Id</param>
+        /// <param name="dishId">菜品Id</param>
+        /// <returns></returns>
+        public bool OrderDishes(int orderId, int dishId)
         {
             return oiDal.OrderDishes(orderId, dishId) > 0;
         }
 
+        /// <summary>
+        /// 更新订单中的菜品数量
+        /// </summary>
+        /// <param name="oid"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public bool UpdateCountByOid(int oid, int count)
         {
             return oiDal.UpdateCountById(oid, count) > 0;

@@ -133,6 +133,10 @@ namespace CaterUI {
         private void menuOrder_Click(object sender, EventArgs e) {
             //先找到选中的标签页，再找到listView,再找到选中的项，项中存储了餐桌编号，由餐桌编号查到订单编号
             var listView = tcHallInfo.SelectedTab.Controls[0] as ListView;
+            if (listView.SelectedItems.Count < 1) {
+                MessageBox.Show("请选择餐桌");
+                return;
+            }
             var lvTable = listView.SelectedItems[0];
             if (lvTable.ImageIndex == 0) {
                 MessageBox.Show("餐桌还未使用，无法结账");

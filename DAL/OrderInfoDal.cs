@@ -26,17 +26,17 @@ namespace CaterDal
             //更新餐桌状态
             //写在一起执行，只需要和数据库交互一次
             //下订单
-            string sql = "INSERT INTO OrderInfo(odate,ispay,tableId) VALUES(DATETIME('now', 'localtime'),0,@Id);" +
+            string sql = "INSERT INTO OrderInfo(odate,ispay,tableId) VALUES(GETDATE(),0,@Id);" +
                 //更新餐桌状态
                 "UPDATE TableInfo SET tIsFree=0 WHERE Id=@Id;" +
                 //获取最新的订单编号
-                "SELECT Id FROM orderinfo ORDER BY Id DESC LIMIT 0,1";
+                "SELECT top 1 Id FROM orderinfo ORDER BY Id ";
             SqlParameter p=new SqlParameter("@Id",tableId);
             return Convert.ToInt32(SQLHelper.ExecuteScalar(sql, p));
         }
 
         /// <summary>
-        /// 通过桌号得到订单Id
+        /// 查看此桌号的当前账单
         /// </summary>
         /// <param name="tableId"></param>
         /// <returns></returns>
@@ -76,9 +76,15 @@ namespace CaterDal
             return SQLHelper.ExecuteNonQuery(sql, ps);
         }
 
+        /// <summary>
+        /// 更新订单的菜品数量
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public int UpdateCountById(int Id,int count)
         {
-            string sql = "UPDATE orderDetailInfo SET count=@count where Id=@Id";
+            string sql = "UPDATE orderDetailInfo SET count=@count WHERE Id=@Id";
             SqlParameter[] ps =
             {
                 new SqlParameter("@count", count),
@@ -87,6 +93,11 @@ namespace CaterDal
             return SQLHelper.ExecuteNonQuery(sql, ps);
         }
 
+        /// <summary>
+        /// 获取订单详情列表
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
         public List<OrderDetailInfo> GetDetailList(int orderId)
         {
             string sql=@"SELECT odi.Id,di.dTitle,di.dPrice,odi.count FROM dishinfo AS di
@@ -95,23 +106,27 @@ namespace CaterDal
             WHERE odi.orderId=@orderid";
             SqlParameter p=new SqlParameter("@orderid",orderId);
 
-            DataTable dt = SQLHelper.GetDataTable(sql, p);
-            List<OrderDetailInfo> list=new List<OrderDetailInfo>();
-
-            foreach (DataRow row in dt.Rows)
-            {
-                list.Add(new OrderDetailInfo()
-                {
-                    Id = Convert.ToInt32(row["Id"]),
-                    DTitle = row["dtitle"].ToString(),
-                    DPrice = Convert.ToDecimal(row["dprice"]),
-                    Count = Convert.ToInt32(row["count"])
-                });
-            }
-
+            
+            var list=SQLHelper.ExecuteScalarList< OrderDetailInfo>(sql,p);
+            //DataTable dt = SQLHelper.GetDataTable(sql, p);
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    list.Add(new OrderDetailInfo()
+            //    {
+            //        Id = Convert.ToInt32(row["Id"]),
+            //        DTitle = row["dtitle"].ToString(),
+            //        DPrice = Convert.ToDecimal(row["dprice"]),
+            //        Count = Convert.ToInt32(row["count"])
+            //    });
+            //}
             return list;
         }
 
+        /// <summary>
+        /// 获取订单总金额
+        /// </summary>
+        /// <param name="orderid"></param>
+        /// <returns></returns>
         public decimal GetTotalMoneyByOrderId(int orderid)
         {
             string sql = @"	SELECT SUM(oti.count*di.dprice) 
@@ -129,6 +144,12 @@ namespace CaterDal
             return Convert.ToDecimal(obj);
         }
 
+        /// <summary>
+        /// 更新订单的金额
+        /// </summary>
+        /// <param name="orderid"></param>
+        /// <param name="money"></param>
+        /// <returns></returns>
         public int SetOrderMomey(int orderid,decimal money)
         {
             string sql = "UPDATE orderinfo set omoney=@money WHERE Id=@Id";
@@ -140,6 +161,11 @@ namespace CaterDal
             return SQLHelper.ExecuteNonQuery(sql, ps);
         }
 
+        /// <summary>
+        /// 删除订单详情
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public int DeleteDetailById(int Id)
         {
             string sql = "DELETE FROM orderDetailInfo WHERE Id=@Id";
@@ -147,6 +173,15 @@ namespace CaterDal
             return SQLHelper.ExecuteNonQuery(sql, p);
         }
 
+        /// <summary>
+        /// 会员支付
+        /// </summary>
+        /// <param name="isUseMoney"></param>
+        /// <param name="memberId"></param>
+        /// <param name="payMoney"></param>
+        /// <param name="orderid"></param>
+        /// <param name="discount"></param>
+        /// <returns></returns>
         public int Pay(bool isUseMoney,int memberId,decimal payMoney,int orderid,decimal discount)
         {
             //创建数据库的链接对象
@@ -213,5 +248,7 @@ namespace CaterDal
                 return result;
             }
         }
+
+        //public int Pay()
     }
 }

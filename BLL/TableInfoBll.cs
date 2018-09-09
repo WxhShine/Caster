@@ -39,5 +39,13 @@ namespace CaterBll
         {
             return tiDal.Delete(id) > 0;
         }
+        /// <summary>
+        /// 设置餐桌状态
+        /// </summary>
+        /// <param name="tableId">桌号</param>
+        /// <param name="isfree">是否空闲</param>
+        public void SetSate(int tableId,bool isfree) {
+            tiDal.SetState(tableId, isfree);
+        }
     }
 }
