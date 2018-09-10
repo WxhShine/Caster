@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CaterCommon;
 using CaterDal;
 using CaterModel;
 
 namespace CaterBll {
+    /// <summary>
+    /// 店员信息业务层
+    /// </summary>
     public partial class ManagerInfoBll {
-        //创建数据层对象
         ManagerInfoDal miDal = new ManagerInfoDal();
 
         /// <summary>

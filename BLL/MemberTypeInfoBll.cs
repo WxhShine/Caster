@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CaterDal;
 using CaterModel;
 
-namespace CaterBll
-{
+namespace CaterBll {
+    /// <summary>
+    /// 会员类型业务层
+    /// </summary>
     public partial class MemberTypeInfoBll
     {
-        //定义数据对象，用于调用进行数据操作的方法
         private MemberTypeInfoDal mtiDal;
 
         public MemberTypeInfoBll()

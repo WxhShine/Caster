@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CaterDal;
 using CaterModel;
 
-namespace CaterBll
-{
+namespace CaterBll {
     /// <summary>
     /// 账单信息业务层
     /// </summary>
@@ -57,26 +52,56 @@ namespace CaterBll
             return oiDal.UpdateCountById(oid, count) > 0;
         }
 
+        /// <summary>
+        /// 获得订单的详细
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
         public List<OrderDetailInfo> GetDetailList(int orderId)
         {
             return oiDal.GetDetailList(orderId);
         }
 
+        /// <summary>
+        /// 获取订单总金额
+        /// </summary>
+        /// <param name="orderid"></param>
+        /// <returns></returns>
         public decimal GetTotalMoneyByOrderId(int orderid)
         {
             return oiDal.GetTotalMoneyByOrderId(orderid);
         }
 
+        /// <summary>
+        /// 设置订单金额
+        /// </summary>
+        /// <param name="orderid"></param>
+        /// <param name="money"></param>
+        /// <returns></returns>
         public bool SetOrderMoney(int orderid, decimal money)
         {
             return oiDal.SetOrderMomey(orderid, money) > 0;
         }
 
+        /// <summary>
+        /// 删除订单详细
+        /// </summary>
+        /// <param name="oid"></param>
+        /// <returns></returns>
         public bool DeleteDetailById(int oid)
         {
             return oiDal.DeleteDetailById(oid) > 0;
         }
 
+        /// <summary>
+        /// 支付账单
+        /// </summary>
+        /// <param name="isUseMoney">是否使用余额</param>
+        /// <param name="memberId">会员Id</param>
+        /// <param name="payMoney">支付金额</param>
+        /// <param name="orderid">订单Id</param>
+        /// <param name="discount">折扣</param>
+        /// <returns></returns>
         public bool Pay(bool isUseMoney, int memberId, decimal payMoney, int orderid, decimal discount)
         {
             return oiDal.Pay(isUseMoney, memberId, payMoney, orderid, discount) > 0;

@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CaterBll;
 using CaterModel;
 
-namespace CaterUI
-{
+namespace CaterUI {
+    /// <summary>
+    /// 结账窗口
+    /// </summary>
     public partial class FormOrderPay : Form
     {
         public FormOrderPay()
@@ -91,14 +87,13 @@ namespace CaterUI
             //2、将订单状态为IsPage=1
             //3、将餐桌状态IsFree=1
 
-            if (cbkMember.Checked && oiBll.Pay(cbkMoney.Checked, int.Parse(txtId.Text), Convert.ToDecimal(lblPayMoneyDiscount.Text), orderId,
-                Convert.ToDecimal(lblDiscount.Text)))
+            if (cbkMember.Checked && oiBll.Pay(cbkMoney.Checked, int.Parse(txtId.Text), Convert.ToDecimal(lblPayMoneyDiscount.Text), orderId,Convert.ToDecimal(lblDiscount.Text)))
             {
                 MessageBox.Show("结账成功");
                 Refresh();
                 this.Close();
             }
-            else if (!cbkMember.Checked) {
+            else if (!cbkMember.Checked&& oiBll.Pay(false,0, Convert.ToDecimal(lblPayMoneyDiscount.Text), orderId,0)) {
                 MessageBox.Show("结账成功");
                 Refresh();
                 this.Close();

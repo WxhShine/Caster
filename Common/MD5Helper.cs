@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
 namespace CaterCommon {
     public class MD5Helper {
+        /// <summary>
+        /// 加密
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string EncryptString(string str) {
             MD5 md5 = MD5.Create();
             byte[] byteOld = Encoding.UTF8.GetBytes(str);

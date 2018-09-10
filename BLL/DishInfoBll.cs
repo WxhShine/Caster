@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CaterDal;
 using CaterModel;
 
-namespace CaterBll
-{
+namespace CaterBll {
+    /// <summary>
+    /// 菜品信息业务层
+    /// </summary>
     public partial class DishInfoBll
     {
         private DishInfoDal diDal=new DishInfoDal();

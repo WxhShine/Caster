@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CaterDal;
 using CaterModel;
 
-namespace CaterBll
-{
+namespace CaterBll {
     /// <summary>
     /// 餐桌业务层
     /// </summary>

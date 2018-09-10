@@ -12,10 +12,7 @@ namespace CaterModel {
         /// <summary>
         /// 会员类型
         /// </summary>
-        public int? MTypeId {
-            set { Mtypeid = value; }
-            get { return Mtypeid; }
-        }
+        public int? MTypeId { get; set; }
         /// <summary>
         /// 姓名
         /// </summary>
@@ -28,8 +25,6 @@ namespace CaterModel {
         /// 账户余额
         /// </summary>
         public decimal? MMoney { set; get; }
-
-        public int? Mtypeid { get; set; }
         #endregion Model
 
     }

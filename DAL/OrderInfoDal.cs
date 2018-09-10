@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CaterCommon;
 using CaterModel;
 
-namespace CaterDal
-{
+namespace CaterDal {
     /// <summary>
     /// 订单 数据层
     /// </summary>
@@ -26,12 +21,12 @@ namespace CaterDal
             //更新餐桌状态
             //写在一起执行，只需要和数据库交互一次
             //下订单
-            string sql = "INSERT INTO OrderInfo(odate,ispay,tableId) VALUES(GETDATE(),0,@Id);" +
+            string sql = "INSERT INTO OrderInfo(odate,ispay,tableId) VALUES(GETDATE(),0,@tableId);" +
                 //更新餐桌状态
-                "UPDATE TableInfo SET tIsFree=0 WHERE Id=@Id;" +
+                "UPDATE TableInfo SET tIsFree=0 WHERE Id=@tableId;" +
                 //获取最新的订单编号
-                "SELECT top 1 Id FROM orderinfo ORDER BY Id ";
-            SqlParameter p=new SqlParameter("@Id",tableId);
+                "SELECT top 1 Id FROM orderinfo  WHERE tableId = @tableId ORDER BY Id DESC";
+            SqlParameter p=new SqlParameter("@tableId", tableId);
             return Convert.ToInt32(SQLHelper.ExecuteScalar(sql, p));
         }
 
@@ -174,18 +169,18 @@ namespace CaterDal
         }
 
         /// <summary>
-        /// 会员支付
+        /// 支付账单
         /// </summary>
-        /// <param name="isUseMoney"></param>
-        /// <param name="memberId"></param>
-        /// <param name="payMoney"></param>
-        /// <param name="orderid"></param>
-        /// <param name="discount"></param>
+        /// <param name="isUseMoney">是否使用余额</param>
+        /// <param name="memberId">会员Id</param>
+        /// <param name="payMoney">支付金额</param>
+        /// <param name="orderid">订单Id</param>
+        /// <param name="discount">折扣</param>
         /// <returns></returns>
         public int Pay(bool isUseMoney,int memberId,decimal payMoney,int orderid,decimal discount)
         {
             //创建数据库的链接对象
-            using (SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["itcastCater"].ConnectionString))
+            using (SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Cater"].ConnectionString))
             {
                 int result = 0;
                 //由数据库链接对象创建事务
@@ -194,6 +189,7 @@ namespace CaterDal
 
                 //创建command对象
                 SqlCommand cmd=new SqlCommand();
+                cmd.Connection = conn;
                 //将命令对象启用事务
                 cmd.Transaction = tran;
                 //执行各命令
@@ -248,7 +244,5 @@ namespace CaterDal
                 return result;
             }
         }
-
-        //public int Pay()
     }
 }

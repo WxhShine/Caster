@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CaterCommon {
+    /// <summary>
+    /// 数据库帮助类
+    /// </summary>
     public static class SQLHelper {
         private static string ConnStr = ConfigurationManager.ConnectionStrings["Cater"].ConnectionString;//从配置文件中读取连接字符串
 
