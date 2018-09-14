@@ -61,7 +61,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(166, 30);
             this.txtName.TabIndex = 2;
-            this.txtName.Text = "伍小辉";
+            this.txtName.Text = "登陆用户";
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtPwd
